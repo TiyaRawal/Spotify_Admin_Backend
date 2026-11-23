@@ -16,10 +16,7 @@ let AddAdminArtists = async (req, res) => {
     } = req.body;
 
     if (!name || !image) {
-      return res.status(400).send({
-        success: false,
-        message: "Artist name and image are required",
-      });
+      return res.status(400).send({success: false, message: "Artist name and image are required"});
     }
 
     let insertArtist = await collection.insertOne({

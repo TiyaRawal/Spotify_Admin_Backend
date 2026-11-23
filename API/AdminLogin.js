@@ -25,7 +25,7 @@ let AdminLogin = async (req, res) => {
       email: adminExists.email,
     };
 
-    let token = jwt.sign(adminData, jwtSecret, { expiresIn: "1h" });
+    let token = jwt.sign(adminData, jwtSecret, { expiresIn: "10h" });
 
     return res.status(200).send({message: "Admin login successful", token, admin: adminData});
   } catch (e) {

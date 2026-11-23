@@ -50,6 +50,11 @@ const { UpdateAdminUsers } = require("./API/UpdateAdminUsers");
 const { DeleteAdminUsers } = require("./API/DeleteAdminUsers");
 const { GetAdminPlaylists } = require("./API/GetAdminPlaylists");
 const { AdminChangePassword } = require("./API/AdminChangePassword");
+const { GetAdminPlans } = require("./API/GetAdminPlans");
+const { AddAdminPlan } = require("./API/AddAdminPlan");
+const { EditAdminPlan } = require("./API/EditAdminPlan");
+const { DeleteAdminPlan } = require("./API/DeleteAdminPlan");
+const { GetAdminPlanUsers } = require("./API/GetAdminPlanUsers");
 
 let port = process.env.PORT || 8001;
 
@@ -89,6 +94,11 @@ app.delete("/adminusers/:user_id", AdminAuth, DeleteAdminUsers);
 
 app.get("/adminplaylists", AdminAuth, GetAdminPlaylists);
 app.put("/adminchangepassword", AdminAuth, AdminChangePassword);
+app.get("/adminplans", AdminAuth, GetAdminPlans);
+app.post("/adminplans", AdminAuth, AddAdminPlan);
+app.put("/adminplans/:id", AdminAuth, EditAdminPlan);
+app.delete("/adminplans/:id", AdminAuth, DeleteAdminPlan);
+app.get("/adminplanusers/:planId", AdminAuth, GetAdminPlanUsers);
 
 app.listen(port, () => {
   console.log("Admin Server is running on port " + port);

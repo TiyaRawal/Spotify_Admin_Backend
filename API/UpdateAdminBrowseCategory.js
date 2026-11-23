@@ -6,7 +6,7 @@ let UpdateAdminBrowseCategory = async (req, res) => {
     let db = await connectDB();
     let collection = db.collection("BrowseCategory");
 
-    let { category_id, title, image, color } = req.body;
+    let {category_id, title, image, color} = req.body;
 
     if (!category_id || !ObjectId.isValid(category_id)) {
       return res.status(400).send({
